@@ -49,30 +49,30 @@ def calculate_CashOnHand_difference(cash_on_hand):
     return highest_cash_surplus, highest_cash_surplus_day, cash_deficits
 
 
-def print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day):
-    """
-    - This function formats and prints the results according to the format in the print statement 
-    - Parameter required: highest_cash_surplus
-    """
-    print("[CASH SURPLUS]: CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
-    print(f"[HIGHEST CASH SURPLUS]: DAY: {highest_cash_surplus_day}, AMOUNT: USD{highest_cash_surplus}")
+# def print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day):
+#     """
+#     - This function formats and prints the results according to the format in the print statement 
+#     - Parameter required: highest_cash_surplus
+#     """
+#     print("[CASH SURPLUS]: CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
+#     print(f"[HIGHEST CASH SURPLUS]: DAY: {highest_cash_surplus_day}, AMOUNT: USD{highest_cash_surplus}")
 
 
-def print_cash_deficit(cash_deficits):
-    """
-    - This function formats and prints the results according to the format in the print statement 
-    - Parameter required: cash_deficits
-    """
-    for day, deficit in cash_deficits:
-        print(f"[CASH DEFICIT] DAY: {day}, AMOUNT: USD{abs(deficit)}")
-        # abs is used to ensure that all the values are positive
+# def print_cash_deficit(cash_deficits):
+#     """
+#     - This function formats and prints the results according to the format in the print statement 
+#     - Parameter required: cash_deficits
+#     """
+#     for day, deficit in cash_deficits:
+#         print(f"[CASH DEFICIT] DAY: {day}, AMOUNT: USD{abs(deficit)}")
+#         # abs is used to ensure that all the values are positive
 
-# calls fuctions and assigns return values to 2 separate variables 
-highest_cash_surplus, highest_cash_surplus_day, cash_deficits = calculate_CashOnHand_difference(cash_on_hand)
+# # calls fuctions and assigns return values to 2 separate variables 
+# highest_cash_surplus, highest_cash_surplus_day, cash_deficits = calculate_CashOnHand_difference(cash_on_hand)
 
-# if there are cash deficits, then it will only print the deficts and the day
-if cash_deficits:
-    print_cash_deficit(cash_deficits)
-# if there are no cash deficits where it keeps profitting, it will only print cash surplus and the day
-elif highest_cash_surplus > 0:
-    print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day)
+# # if there are cash deficits, then it will only print the deficts and the day
+# if cash_deficits:
+#     print_cash_deficit(cash_deficits)
+# # if there are no cash deficits where it keeps profitting, it will only print cash surplus and the day
+# elif highest_cash_surplus > 0:
+#     print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day)
