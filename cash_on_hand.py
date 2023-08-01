@@ -76,4 +76,3 @@ def calculate_CashOnHand_difference(cash_on_hand):
 # # if there are no cash deficits where it keeps profitting, it will only print cash surplus and the day
 # elif highest_cash_surplus > 0:
 #     print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day)
-#
