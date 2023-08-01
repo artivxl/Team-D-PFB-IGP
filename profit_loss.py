@@ -3,7 +3,7 @@ from pathlib import Path
 import csv
 
 # create a file to csv file.
-fp = Path.cwd()/"Profits_and_Loss.csv"
+fp = Path.cwd()/"Profits_and_loss.csv"
 
 # read the csv file to append day and net profit from the csv.
 with fp.open(mode="r", encoding="UTF-8", newline="") as file:
