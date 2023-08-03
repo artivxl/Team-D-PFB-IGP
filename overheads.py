@@ -3,7 +3,7 @@ from pathlib import Path
 import csv
 
 # create a file to csv file
-fp = Path.cwd()/"overheads.csv"
+fp = Path.cwd()/"csv_report"/"overheads.csv"
 
 # read the csv file to append category and overhead from the csv
 with fp.open(mode="r", encoding="UTF-8", newline="") as file:
@@ -40,15 +40,15 @@ def identifying_highest_overhead(overheads):
 
     return highest_category, highest_overhead
 
-highest_category, highest_overheads = identifying_highest_overhead(overheads)
+# highest_category, highest_overheads = identifying_highest_overhead(overheads)
 
-def print_highest_overhead(highest_category, highest_overheads):
-    """
-    - This function prints the highest overheads from the category and its corresponding percentage
-    - Parameter required: highest_category, highest_overheads
-    """
-    return(f"[HIGHEST OVERHEAD] {highest_category}: {highest_overheads}%")
+# def print_highest_overhead(highest_category, highest_overheads):
+#     """
+#     - This function prints the highest overheads from the category and its corresponding percentage
+#     - Parameter required: highest_category, highest_overheads
+#     """
+#     return(f"[HIGHEST OVERHEAD] {highest_category}: {highest_overheads}%")
 
-# calls the "print_highest_overhead" function and print the return stated
-print(print_highest_overhead(highest_category, highest_overheads))
+# # calls the "print_highest_overhead" function and print the return stated
+# print(print_highest_overhead(highest_category, highest_overheads))
 

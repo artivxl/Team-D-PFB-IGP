@@ -3,6 +3,39 @@ import csv
 
 from cash_on_hand import calculate_CashOnHand_difference
 from profit_loss import calculate_netProfit_difference
+from overheads import identifying_highest_overhead
+
+from pathlib import Path
+import csv
+
+# create a file to csv file
+fp = Path.cwd()/"csv_report"/"overheads.csv"
+
+# read the csv file to append category and overhead from the csv
+with fp.open(mode="r", encoding="UTF-8", newline="") as file:
+    reader = csv.reader(file)
+    next(reader) # skip header
+
+    # create an empty list to store category and overhead
+    overheads = []
+
+    # append category and overhead into the overheads list
+    for row in reader:
+        # get the category and overhead (percentage) for day 90 record 
+        # and append the overheads list
+        # convert type for overhead from integer to float
+        overheads.append([row[0],float(row[1])])
+
+highest_category, highest_overheads = identifying_highest_overhead(overheads)
+def print_highest_overhead(highest_category, highest_overheads):
+    """
+    - This function prints the highest overheads from the category and its corresponding percentage
+    - Parameter required: highest_category, highest_overheads
+    """
+    return(f"[HIGHEST OVERHEAD] {highest_category}: {highest_overheads}%")
+
+# calls the "print_highest_overhead" function and print the return stated
+print(print_highest_overhead(highest_category, highest_overheads))
 
 cash_fp = Path.cwd() / "csv_report" / "Cash_on_Hand.csv"
 with cash_fp.open(mode="r", encoding="UTF-8", newline="") as cash_file:
@@ -12,7 +45,6 @@ with cash_fp.open(mode="r", encoding="UTF-8", newline="") as cash_file:
     cash_on_hand = []
     for row in cash_reader:
         cash_on_hand.append([row[0], int(row[1])])
-
 
 highest_cash_surplus, highest_cash_surplus_day, cash_deficits = calculate_CashOnHand_difference(cash_on_hand)
 def print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day):
@@ -71,3 +103,23 @@ if profit_loss:
 # Else, print the highest net profit increase.
 else:
     print_profit_surplus(highest_profit_increase, highest_profit_increase_day)
+
+from pathlib import Path
+# a text file main.txt is created
+file_path = Path.cwd()/"main.txt"
+file_path.touch()
+print(file_path.exists())
+with open("main.txt", "w") as file:
+    file.write(print_highest_overhead(highest_category, highest_overheads))
+    for day, deficit in cash_deficits:
+        file.write(f"[CASH DEFICIT] DAY: {day}, AMOUNT: USD{abs(deficit)}\n")
+        if cash_deficits:
+            print_cash_deficit(cash_deficits)
+        elif highest_cash_surplus > 0:
+            print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day)
+    for day, values in profit_loss:
+        (f"[PROFIT DEFICIT] DAY: {day}, AMOUNT: USD{abs(values)}\n")
+        if profit_loss:
+            print_profit_deficit(profit_loss)
+        else:
+            print_profit_surplus(highest_profit_increase, highest_profit_increase_day)
