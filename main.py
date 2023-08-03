@@ -1,9 +1,9 @@
 from pathlib import Path
 import csv
 
+from overheads import identifying_highest_overhead
 from cash_on_hand import calculate_CashOnHand_difference
 from profit_loss import calculate_netProfit_difference
-from overheads import identifying_highest_overhead
 
 from pathlib import Path
 import csv
@@ -109,17 +109,10 @@ from pathlib import Path
 file_path = Path.cwd()/"main.txt"
 file_path.touch()
 print(file_path.exists())
+# main.txt is being open and written into
 with open("main.txt", "w") as file:
-    file.write(print_highest_overhead(highest_category, highest_overheads))
+    file.write(print_highest_overhead(highest_category, highest_overheads) + "\n")
     for day, deficit in cash_deficits:
         file.write(f"[CASH DEFICIT] DAY: {day}, AMOUNT: USD{abs(deficit)}\n")
-        if cash_deficits:
-            print_cash_deficit(cash_deficits)
-        elif highest_cash_surplus > 0:
-            print_cash_surplus(highest_cash_surplus, highest_cash_surplus_day)
     for day, values in profit_loss:
-        (f"[PROFIT DEFICIT] DAY: {day}, AMOUNT: USD{abs(values)}\n")
-        if profit_loss:
-            print_profit_deficit(profit_loss)
-        else:
-            print_profit_surplus(highest_profit_increase, highest_profit_increase_day)
+        file.write(f"[PROFIT DEFICIT] DAY: {day}, AMOUNT: USD{abs(values)}\n")
