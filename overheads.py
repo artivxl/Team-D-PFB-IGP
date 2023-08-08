@@ -39,16 +39,3 @@ def identifying_highest_overhead(overheads):
             highest_category = category
 
     return highest_category, highest_overhead
-
-# highest_category, highest_overheads = identifying_highest_overhead(overheads)
-
-# def print_highest_overhead(highest_category, highest_overheads):
-#     """
-#     - This function prints the highest overheads from the category and its corresponding percentage
-#     - Parameter required: highest_category, highest_overheads
-#     """
-#     return(f"[HIGHEST OVERHEAD] {highest_category}: {highest_overheads}%")
-
-# # calls the "print_highest_overhead" function and print the return stated
-# print(print_highest_overhead(highest_category, highest_overheads))
-
