@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import csv
 
@@ -46,29 +45,3 @@ def calculate_netProfit_difference(profitLoss):
             profit_loss.append((profitLoss[values][0], difference))
 
     return highest_profit_increase, highest_profit_increase_day, profit_loss
-
-# def print_profit_surplus(highest_profit_increase, highest_profit_increase_day):
-#     """
-#     - This function prints the highest profit increase and its corresponding day
-#     - Parameter required: highest_profit_increase, highest_profit_increase_day
-#     """
-#     print(f"[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
-#     print(f"[HIGHEST NET PROFIT SURPLUS] DAY: {highest_profit_increase_day}, AMOUNT: USD{highest_profit_increase}")
-
-# def print_profit_deficit(profit_loss):
-#     """
-#     - This function prints the profit deficit amount and its corresponding day
-#     - Parameter required: profit_loss
-#     """
-#     for day, values in profit_loss:
-#         print(f"[PROFIT DEFICIT] DAY: {day}, AMOUNT: USD{abs(values)}")
-
-# highest_profit_increase, highest_profit_increase_day, profit_loss = calculate_netProfit_difference(profitLoss)
-
-# # If there are profit loss days, print the loss and days.
-# if profit_loss:
-#     print_profit_deficit(profit_loss)
-# # Else, print the highest net profit increase.
-# else:
-#     print_profit_surplus(highest_profit_increase, highest_profit_increase_day)
-
