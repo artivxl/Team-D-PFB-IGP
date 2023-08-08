@@ -13,17 +13,17 @@ with fp.open(mode="r", encoding="UTF-8", newline="") as file:
     # create an empty list to store category and overhead
     overheads = []
 
-    # append category and overhead into the overheads list
+    # append category and overhead (percentage) into the overheads list
     for row in reader:
         # get the category and overhead (percentage) for day 90 record 
         # and append the overheads list
-        # convert type for overhead from integer to float
+        # convert the type of overhead from integer to float
         overheads.append([row[0],float(row[1])])
 
 
 def identifying_highest_overhead(overheads):
     """
-    - This function will identify the highest overhead 
+    - This function will identify the highest overhead in the overheads list
     - Parameter required: overheads  
     """
     
@@ -31,8 +31,8 @@ def identifying_highest_overhead(overheads):
     highest_overhead = 0.0
     highest_category = ()
 
-    # iterating through the datas in overheads list to find out which is the highest overhead 
-    # and find the category of it
+    # iterating through the datas in overheads list to find out which is the highest overhead (percentage) 
+    # and find the category from it
     for category, overhead in overheads:
         if overhead > highest_overhead:
             highest_overhead = overhead
